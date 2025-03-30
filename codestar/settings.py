@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 # connect settings.py to env.py
 import os
+import dj_database_url
 
 if os.path.isfile('env.py'):
     import env
@@ -87,21 +88,23 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_project',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5442',
-       
-    }
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+DATABASES['default']['PORT'] = '5432'
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'django_project',
+#         'USER': 'postgres',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': '5442',
+       
+#     }
+# }
 
 
 # Password validation
