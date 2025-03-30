@@ -22,6 +22,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 if os.path.isfile('env.py'):
     import env
+    print("env.py executed successfully.")
+else:
+    print("env.py file not found.")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -96,7 +99,7 @@ database_url = os.environ.get("DATABASE_URL")
 print("Database URL:", database_url)
 
 DATABASES = {
-    'default': dj_database_url.parse(str(os.environ.get("DATABASE_URL", "")))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL", ""))
 }
 
 DATABASES['default']['PORT'] = '5432'
