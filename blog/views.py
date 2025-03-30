@@ -4,4 +4,4 @@ from django.http import HttpResponse
 # Create your views here.
 
 def blog(request):
-    return HttpResponse('Hello, this is the blog page!')  # noqa: E501
+    return HttpResponse('Hello, this is the blog home page!')  # noqa: E501
