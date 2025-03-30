@@ -13,7 +13,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 # connect settings.py to env.py
 import os
+import sys
 import dj_database_url
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
+# import env.py file if it exists
 
 if os.path.isfile('env.py'):
     import env
@@ -87,6 +92,8 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+database_url = os.environ.get("DATABASE_URL")
+print("Database URL:", database_url)
 
 DATABASES = {
     'default': dj_database_url.parse(str(os.environ.get("DATABASE_URL", "")))
