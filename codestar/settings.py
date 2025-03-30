@@ -34,7 +34,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ih(z3c8i&xgp61wf5mt1+w#!o=xyf*e_i)ky7w0c3__ts!a#w7'
+# SECRET_KEY = 'django-insecure-ih(z3c8i&xgp61wf5mt1+w#!o=xyf*e_i)ky7w0c3__ts!a#w7'
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -95,8 +98,6 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-database_url = os.environ.get("DATABASE_URL")
-print("Database URL:", database_url)
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL", ""))
