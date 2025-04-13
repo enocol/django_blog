@@ -17,6 +17,7 @@
               </div>
               <a href="#" class="post-link">
                 <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text">{{post.excerpt}}</p>
               </a>
 
               <hr />
@@ -35,8 +36,14 @@
       {% if page_obj.has_next %}
       <li>
         <a href="?page={{ page_obj.next_page_number }}" class="page-link">
-          NEXT &raquo;</a
-        >
+          NEXT &raquo;
+        </a>
+      </li>
+      {% endif %} {% if page_obj.has_previous %}
+      <li>
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">
+          &laquo; PREVIOUS
+        </a>
       </li>
       {% endif %}
     </ul>
@@ -45,4 +52,6 @@
 </div>
 
 <!-- index.html content ends here -->
-{% endblock %}
+{% endblock %} {% block copyright %}
+<p class="m-0 text-center text-white">Enoh Collins</p>
+{% endblock copyright %}
