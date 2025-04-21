@@ -5,6 +5,7 @@
     <div class="row g-0">
       <div class="col-md-6 masthead-text">
         <!-- Post title goes in these h1 tags -->
+        <p class="post-subtitle">Author: {{ coder }}</p>
         <h1 class="post-title">{{ post.title }}</h1>
         <!-- Post author goes before the | the post's created date goes after -->
         <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
@@ -27,6 +28,26 @@
         <!-- The post content goes inside the card-text. -->
         <!-- Use the | safe filter inside the template tags -->
         <p class="card-text">{{ post.content | safe }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col card mb-4 mt-3 left top">
+      <div class="card-body">
+        <h5 class="card-title">Comments</h5>
+        {% for comment in comments %}
+        <ul class="list-group list-group-flush">
+          <li class="card-text list-group-item">
+            {{ comment.body | safe }}
+            <h6 class="card-subtitle">Author: {{ comment.author }}</h6>
+            <h6 class="card-subtitle">{{ comment.created_at }}</h6>
+          </li>
+        </ul>
+
+        {% endfor %}
       </div>
     </div>
   </div>

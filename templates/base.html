@@ -67,6 +67,14 @@
                 >Home</a
               >
             </li>
+            `
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.path == '/about/' %}active{% endif %}"
+                href="{% url 'about' %}"
+                >About</a
+              >
+            </li>
           </ul>
           <span class="navbar-text text-muted">
             adventures of a software developer
