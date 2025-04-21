@@ -2,23 +2,34 @@
 
 <div class="container margin-top">
   <div class="row">
-    <div class="col-4">
+    <div class="col-4 text-center">
+      {% for item in about %} {% if not item.image %}
       <img
         src="{% static 'images/default.jpg' %}"
-        alt="About Us"
+        alt="Default Image"
         class="img-fluid rounded-circle"
-        style="width: 300px; height: 300px"
       />
+      {% else %}
+      <img
+        src="/about_images/five.png"
+        alt="About Image"
+        class="img-fluid rounded-circle"
+        width="150"
+        height="150"
+      />
+      {% endif %} {% endfor %}
       <p class="mt-3">
         Our team is dedicated to making a difference and we are excited to share
         our journey with you.
       </p>
     </div>
     <div class="col-8">
-      <h1>About</h1>
+      <h1>{{coder}}</h1>
       <p>
-        Welcome to the About page! This is where you can learn more about our
-        project and its purpose.
+        Welcome to our blog! We are a passionate group of individuals who are
+        committed to sharing our knowledge and experiences with the world. Our
+        mission is to provide valuable insights and information on various
+        topics that matter to us and our readers.
       </p>
       <p>
         We aim to provide a comprehensive overview of our work and the impact it
